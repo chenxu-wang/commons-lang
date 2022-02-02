@@ -18,3 +18,11 @@ site-content
 .project
 .externalToolBuilders
 .checkstyle
+src/test/java/org/apache/commons/.DS_Store
+src/.DS_Store
+src/test/.DS_Store
+src/test/java/.DS_Store
+src/test/java/org/.DS_Store
+src/test/java/org/apache/.DS_Store
+src/test/java/org/apache/commons/lang3/.DS_Store
+.DS_Store
