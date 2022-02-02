@@ -84,18 +84,18 @@ public class SWE261_P1_Test {
         assertFalse(StringUtils.isAlpha(""));
 
         // length between 1 and 65535
-        String str = "";
+        String testStr = "";
         for (int i = 0; i < 6666; i++){
-            str +=  c[random.nextInt(c.length)];
+            testStr +=  c[random.nextInt(c.length)];
         }
-        assertTrue(StringUtils.isAlpha(str));
+        assertTrue(StringUtils.isAlpha(testStr));
 
 
         // length is 65535
-        String str2 = "";
+        String testStr2 = "";
         for (int i = 0; i < 65535; i++){
-            str2 +=  c[random.nextInt(c.length)];
+            testStr2 +=  c[random.nextInt(c.length)];
         }
-        assertTrue(StringUtils.isAlpha(str2));
+        assertTrue(StringUtils.isAlpha(testStr2));
     }
 }
