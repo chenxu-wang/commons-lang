@@ -19,6 +19,8 @@ public class SWE261_P1_Test {
      * testIsAlpha() is used to test diverse input types
      * testLength() is used to test the different length of input
      *
+     * Click the green triangle run button to run the test cases
+     *
      */
     @Test
     public void testNullOrNot(){
