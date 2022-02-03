@@ -8,8 +8,6 @@ public class SWETest {
     @Test
     public void testAddPosition(){
         final int[] array = {1, 2, 3};
-        //add directly
-        assertArrayEquals(new int[] {1,2,3,0}, ArrayUtils.add(array,0));
         //add at first
         assertArrayEquals(new int[] {0,1,2,3}, ArrayUtils.add(array,0,0));
         //add at last
