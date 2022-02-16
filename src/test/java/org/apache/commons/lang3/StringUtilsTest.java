@@ -3395,7 +3395,7 @@ public class StringUtilsTest {
     }
 
     /**
-     * SWE261P3 White box testing
+     * SWE261P3 White box testing for StringUtil
      */
 
     /**
@@ -3458,6 +3458,41 @@ public class StringUtilsTest {
         assertTrue(StringUtils.equals("abc", "abc"));
         assertFalse(StringUtils.equals("abc", "ABC"));
         assertTrue(StringUtils.equals(" ", " "));
+    }
+
+    /**
+     * Coverage test for int countMatches(final CharSequence str, final char ch) and int countMatches(final CharSequence str, final CharSequence sub) at line 1453 and 1489
+     */
+    @Test
+    public void testCountMatch(){
+        assertEquals(0,StringUtils.countMatches("",'a'));
+        assertEquals(2,StringUtils.countMatches("aa",'a'));
+        assertEquals(0,StringUtils.countMatches("","ab"));
+        assertEquals(1,StringUtils.countMatches("abc","ab"));
+
+    }
+    /**
+     * Coverage test for boolean endsWithAny(final CharSequence sequence, final CharSequence... searchStrings) at line 1739
+     */
+    @Test
+    public void testEndsWithAny(){
+        assertEquals(false, StringUtils.endsWithAny("","aa","zzz"));
+        assertEquals(true, StringUtils.endsWithAny("aaa","a","aa"));
+        assertEquals(false, StringUtils.endsWithAny("aaa","b","bb"));
+
+    }
+    /**
+     * Coverage test for int indexOfAny(final CharSequence cs, final char... searchChars) and int indexOfAny(final CharSequence str, final CharSequence... searchStrs)
+     * at line 2759 and 2811
+     */
+    @Test
+    public void testIndexOfAny(){
+        assertEquals(-1,StringUtils.indexOfAny("",'a','b'));
+        assertEquals(0,StringUtils.indexOfAny("abc",'a'));
+        assertEquals(-1,StringUtils.indexOfAny("abc",'d'));
+        assertEquals(-1,StringUtils.indexOfAny("","aa","bb"));
+        assertEquals(-1,StringUtils.indexOfAny("ccc","aa","bb"));
+        assertEquals(0,StringUtils.indexOfAny("ccc","cc","bb"));
     }
 }
 
