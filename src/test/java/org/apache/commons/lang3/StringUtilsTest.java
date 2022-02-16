@@ -3393,4 +3393,83 @@ public class StringUtilsTest {
             }
         }
     }
+
+    /**
+     * SWE261P3 White box testing
+     */
+
+    /**
+     * Coverage test for int compare(final String str1, final String str2, final boolean nullIsLess) at line [867]
+     */
+    @Test
+    public void testCompare(){
+        assertEquals(0, StringUtils.compare("abc", "abc", false));
+        assertEquals(-1, StringUtils.compare(null, "xyz", true));
+        assertEquals(1, StringUtils.compare(null, "xyz", false));
+        assertEquals(1, StringUtils.compare("xyz", null, true));
+        assertEquals(-1, StringUtils.compare("xyz", null, false));
+        assertEquals(-23, StringUtils.compare("abc", "xyz", false));
+        assertEquals(-23, StringUtils.compare("abc", "xyz", true));
+    }
+
+    /**
+     * Coverage test for boolean contains(final CharSequence seq, final CharSequence searchSeq) at line [996]
+     */
+    @Test
+    public void testContains(){
+        assertFalse(StringUtils.contains("abc", null));
+        assertFalse(StringUtils.contains(null, "abc"));
+        assertTrue(StringUtils.contains("abc", "a"));
+    }
+
+    /**
+     * Coverage test for containsAny(final CharSequence cs, final char... searchChars) at line [1054]
+     * need modify
+     */
+
+    @Test
+    public void testContainsAny(){
+        assertFalse(StringUtils.containsAny("xyz", new char[]{}));
+        assertFalse(StringUtils.containsAny("", new char[]{}));
+        assertFalse(StringUtils.containsAny("xyz", new char[]{'a','b','c'}));
+        assertTrue(StringUtils.containsAny("zzabyycdxx", new char[]{'a','z','c'}));
+        assertTrue(StringUtils.containsAny("zzabyycdxx", new char[]{'b','y'}));
+    }
+
+    /**
+     * Coverage test for boolean containsWhitespace(final CharSequence seq) at line [1411]
+     */
+    @Test
+    public void testContainsWhitespace(){
+        assertFalse(StringUtils.containsWhitespace(""));
+        assertFalse(StringUtils.containsWhitespace("abc"));
+        assertTrue(StringUtils.containsWhitespace("ab c"));
+    }
+
+    /**
+     * Coverage test for boolean equals(final CharSequence cs1, final CharSequence cs2) at line [1801]
+     */
+    @Test
+    public void testEquals(){
+        assertTrue(StringUtils.equals(null, null));
+        assertFalse(StringUtils.equals(null, "abc"));
+        assertFalse(StringUtils.equals("abc", null));
+        assertFalse(StringUtils.equals("ab", "abc"));
+        assertTrue(StringUtils.equals("abc", "abc"));
+        assertFalse(StringUtils.equals("abc", "ABC"));
+        assertTrue(StringUtils.equals(" ", " "));
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
