@@ -173,7 +173,7 @@ public class FieldUtilsTest {
         assertArrayEquals(sort(ArrayUtils.addAll(fieldsInteger, fieldsNumber)), sort(FieldUtils.getAllFields(Integer.class)));
         final Field[] allFields = FieldUtils.getAllFields(PublicChild.class);
         // Under Jacoco,0.8.1 and Java 10, the field count is 7.
-        int expected = 5;
+        int expected = 7;
         for (final Field field : allFields) {
             if (field.getName().equals(JACOCO_DATA_FIELD_NAME)) {
                 expected++;
@@ -198,7 +198,7 @@ public class FieldUtilsTest {
         assertEquals(new HashSet(allFieldsInteger), new HashSet(FieldUtils.getAllFieldsList(Integer.class)));
         final List<Field> allFields = FieldUtils.getAllFieldsList(PublicChild.class);
         // Under Jacoco,0.8.1 and Java 10, the field count is 7.
-        int expected = 5;
+        int expected = 7;
         for (final Field field : allFields) {
             if (field.getName().equals(JACOCO_DATA_FIELD_NAME)) {
                 expected++;
