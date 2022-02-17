@@ -3467,8 +3467,13 @@ public class StringUtilsTest {
     public void testCountMatch(){
         assertEquals(0,StringUtils.countMatches("",'a'));
         assertEquals(2,StringUtils.countMatches("aa",'a'));
+        assertEquals(0,StringUtils.countMatches("aa",'b'));
+
         assertEquals(0,StringUtils.countMatches("","ab"));
         assertEquals(1,StringUtils.countMatches("abc","ab"));
+        assertEquals(0,StringUtils.countMatches("abc","bd"));
+
+
 
     }
     /**
@@ -3477,6 +3482,8 @@ public class StringUtilsTest {
     @Test
     public void testEndsWithAny(){
         assertEquals(false, StringUtils.endsWithAny("","aa","zzz"));
+        assertEquals(false, StringUtils.endsWithAny("aaa",null));
+
         assertEquals(true, StringUtils.endsWithAny("aaa","a","aa"));
         assertEquals(false, StringUtils.endsWithAny("aaa","b","bb"));
 
@@ -3491,11 +3498,17 @@ public class StringUtilsTest {
         assertEquals(0,StringUtils.indexOfAny("abc",'a'));
         assertEquals(-1,StringUtils.indexOfAny("abc",'d'));
         assertEquals(3,StringUtils.indexOfAny(("abc"+'\uD800'+'d'),'\uD800','d'));
+        assertEquals(-1,StringUtils.indexOfAny(("abc"+'\uD800'+'d'),'\uD800','e'));
+
         assertEquals(-1,StringUtils.indexOfAny("","aa","bb"));
         assertEquals(-1,StringUtils.indexOfAny("ccc","aa","bb"));
         assertEquals(-1,StringUtils.indexOfAny("ccc",null,"aa","bb"));
         assertEquals(-1,StringUtils.indexOfAny(null,null,"aa","bb"));
         assertEquals(0,StringUtils.indexOfAny("ccc","cc","bb"));
+        assertEquals(0,StringUtils.indexOfAny("cccbb","cc","bb"));
+
+//        assertEquals(-1,StringUtils.indexOfAny(null,""));
+
     }
 }
 
