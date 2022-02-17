@@ -3490,8 +3490,11 @@ public class StringUtilsTest {
         assertEquals(-1,StringUtils.indexOfAny("",'a','b'));
         assertEquals(0,StringUtils.indexOfAny("abc",'a'));
         assertEquals(-1,StringUtils.indexOfAny("abc",'d'));
+        assertEquals(3,StringUtils.indexOfAny(("abc"+'\uD800'+'d'),'\uD800','d'));
         assertEquals(-1,StringUtils.indexOfAny("","aa","bb"));
         assertEquals(-1,StringUtils.indexOfAny("ccc","aa","bb"));
+        assertEquals(-1,StringUtils.indexOfAny("ccc",null,"aa","bb"));
+        assertEquals(-1,StringUtils.indexOfAny(null,null,"aa","bb"));
         assertEquals(0,StringUtils.indexOfAny("ccc","cc","bb"));
     }
 }
