@@ -1,30 +1,33 @@
 package org.apache.commons.lang3;
 
 import org.junit.jupiter.api.Test;
+
 import java.util.Random;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 
 public class SWE261_P1_Test {
     /**
      * Part I:
      * In general, the test can be partitioned into two parts: the input is null or not null
      * When the input is not null, it has two dimensions: the type of input and length of input
-     *      For type, it can be partitioned into space, number, letter (uppercase & lowercase), symbols and mix
-     *      For length, it can be partitioned into three ranges; 0, 0-maxLength, maxLength
-     *
+     * For type, it can be partitioned into space, number, letter (uppercase & lowercase), symbols and mix
+     * For length, it can be partitioned into three ranges; 0, 0-maxLength, maxLength
+     * <p>
      * IsAlpha() feature can be found as the following path: src/main/java/org/apache/commons/lang3/StringUtils.java
-     *
+     * <p>
      * testNullOrNot() is used to check the following two occasions
      * testIsAlpha() is used to test diverse input types
      * testLength() is used to test the different length of input
-     *
+     * <p>
      * Click the green triangle run button to run the test cases
-     *
      */
     @Test
-    public void testNullOrNot(){
+    public void testNullOrNot() {
         // null
         assertFalse(StringUtils.isAlpha(null));
         // Not null
@@ -32,7 +35,7 @@ public class SWE261_P1_Test {
     }
 
     @Test
-    public void testIsAlpha(){
+    public void testIsAlpha() {
         // only space
         assertFalse(StringUtils.isAlpha(""));
         assertFalse(StringUtils.isAlpha(" "));
@@ -76,7 +79,7 @@ public class SWE261_P1_Test {
     }
 
     @Test
-    public void testLength(){
+    public void testLength() {
         String s = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         char[] c = s.toCharArray();
         Random random = new Random(); // to get a random letter from s
@@ -86,41 +89,41 @@ public class SWE261_P1_Test {
 
         // length between 1 and 65535
         String testStr = "";
-        for (int i = 0; i < 6666; i++){
-            testStr +=  c[random.nextInt(c.length)];
+        for (int i = 0; i < 6666; i++) {
+            testStr += c[random.nextInt(c.length)];
         }
         assertTrue(StringUtils.isAlpha(testStr));
 
 
         // length is 65535
         String testStr2 = "";
-        for (int i = 0; i < 65535; i++){
-            testStr2 +=  c[random.nextInt(c.length)];
+        for (int i = 0; i < 65535; i++) {
+            testStr2 += c[random.nextInt(c.length)];
         }
         assertTrue(StringUtils.isAlpha(testStr2));
     }
+
     /**
      * Part II:
      * The test is aimed to test add function for integer array. It can be partitioned into three situations. Add at first, add at last,
      * add at mid and add out of bounds
-     *
+     * <p>
      * add() feature can be found as the following path: src/main/java/org/apache/commons/lang3/ArrayUtils.java
-     *
+     * <p>
      * Click the green triangle run button to run the test cases
-     *
      */
     @Test
-    public void testAddPosition(){
+    public void testAddPosition() {
         final int[] array = {1, 2, 3};
         //add at first
-        assertArrayEquals(new int[] {0,1,2,3}, ArrayUtils.add(array,0,0));
+        assertArrayEquals(new int[]{0, 1, 2, 3}, ArrayUtils.add(array, 0, 0));
         //add at last
-        assertArrayEquals(new int[] {1,2,3,0}, ArrayUtils.add(array,3,0));
+        assertArrayEquals(new int[]{1, 2, 3, 0}, ArrayUtils.add(array, 3, 0));
         //add in mid
-        assertArrayEquals(new int[] {1,0,2,3}, ArrayUtils.add(array,1,0));
+        assertArrayEquals(new int[]{1, 0, 2, 3}, ArrayUtils.add(array, 1, 0));
         //add out of bounds
-        assertThrows(IndexOutOfBoundsException.class, () -> ArrayUtils.add( array, -1, 0));
-        assertThrows(IndexOutOfBoundsException.class, () -> ArrayUtils.add( array, 4, 0));
+        assertThrows(IndexOutOfBoundsException.class, () -> ArrayUtils.add(array, -1, 0));
+        assertThrows(IndexOutOfBoundsException.class, () -> ArrayUtils.add(array, 4, 0));
     }
 
 }

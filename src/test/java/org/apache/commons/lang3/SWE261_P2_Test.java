@@ -2,54 +2,55 @@ package org.apache.commons.lang3;
 
 import org.junit.jupiter.api.Test;
 
-import java.sql.Array;
-import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static org.junit.jupiter.api.Assertions.*;
 public class SWE261_P2_Test {
 
     @Test
-    public void testArrayToString(){
-        String[] a = {"aaa","bbb"};
-        assertEquals("{aaa,bbb}",ArrayUtils.toString(a));
+    public void testArrayToString() {
+        String[] a = {"aaa", "bbb"};
+        assertEquals("{aaa,bbb}", ArrayUtils.toString(a));
     }
+
     @Test
-    public void testToArray(){
-        String[] a = {"aaa","bbb"};
-        String[] b = ArrayUtils.toArray("aaa","bbb");
-        assertEquals(ArrayUtils.toString(a),ArrayUtils.toString(b));
+    public void testToArray() {
+        String[] a = {"aaa", "bbb"};
+        String[] b = ArrayUtils.toArray("aaa", "bbb");
+        assertEquals(ArrayUtils.toString(a), ArrayUtils.toString(b));
     }
+
     @Test
-    public void testArrayUtilAdd(){
-        String[] a = ArrayUtils.toArray("aaa","bbb");
-        String[] c = ArrayUtils.add(a,"ccc");
+    public void testArrayUtilAdd() {
+        String[] a = ArrayUtils.toArray("aaa", "bbb");
+        String[] c = ArrayUtils.add(a, "ccc");
         assertEquals("{aaa,bbb,ccc}", ArrayUtils.toString(c));
     }
+
     @Test
-    public void testArrayUtilRemove(){
-        String[] a = ArrayUtils.toArray("aaa","bbb");
-        String[] c = ArrayUtils.add(a,"ccc");
-        String[] d = ArrayUtils.remove(c,c.length-1);
+    public void testArrayUtilRemove() {
+        String[] a = ArrayUtils.toArray("aaa", "bbb");
+        String[] c = ArrayUtils.add(a, "ccc");
+        String[] d = ArrayUtils.remove(c, c.length - 1);
         assertEquals("{aaa,bbb}", ArrayUtils.toString(d));
     }
+
     @Test
-    public void testArrayUtilReverse(){
-        String[] a = ArrayUtils.toArray("aaa","bbb","ccc");
+    public void testArrayUtilReverse() {
+        String[] a = ArrayUtils.toArray("aaa", "bbb", "ccc");
         ArrayUtils.reverse(a);
         assertEquals("{ccc,bbb,aaa}", ArrayUtils.toString(a));
         ArrayUtils.reverse(a);
         assertEquals("{aaa,bbb,ccc}", ArrayUtils.toString(a));
     }
+
     @Test
-    public void testArrayUtilSwap(){
-        String[] a = ArrayUtils.toArray("aaa","bbb","ccc");
-        ArrayUtils.swap(a,0,2);
+    public void testArrayUtilSwap() {
+        String[] a = ArrayUtils.toArray("aaa", "bbb", "ccc");
+        ArrayUtils.swap(a, 0, 2);
         assertEquals("{ccc,bbb,aaa}", ArrayUtils.toString(a));
-        ArrayUtils.swap(a,2,0);
+        ArrayUtils.swap(a, 2, 0);
         assertEquals("{aaa,bbb,ccc}", ArrayUtils.toString(a));
     }
-
-
 
 
 }

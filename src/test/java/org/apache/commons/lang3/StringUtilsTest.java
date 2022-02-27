@@ -680,7 +680,7 @@ public class StringUtilsTest {
     @Test
     public void testGetIfBlank_StringStringSupplier() {
         assertEquals("NULL", StringUtils.getIfBlank(null, () -> "NULL"));
-        assertEquals("NULL", StringUtils.getIfBlank("",  () -> "NULL"));
+        assertEquals("NULL", StringUtils.getIfBlank("", () -> "NULL"));
         assertEquals("NULL", StringUtils.getIfBlank(" ", () -> "NULL"));
         assertEquals("abc", StringUtils.getIfBlank("abc", () -> "NULL"));
         assertNull(StringUtils.getIfBlank("", () -> null));
@@ -868,7 +868,7 @@ public class StringUtilsTest {
         assertEquals(ArrayUtils.EMPTY_BYTE_ARRAY, StringUtils.getBytes(null, (Charset) null));
         assertArrayEquals(StringUtils.EMPTY.getBytes(), StringUtils.getBytes(StringUtils.EMPTY, (Charset) null));
         assertArrayEquals(StringUtils.EMPTY.getBytes(StandardCharsets.US_ASCII),
-            StringUtils.getBytes(StringUtils.EMPTY, StandardCharsets.US_ASCII));
+                StringUtils.getBytes(StringUtils.EMPTY, StandardCharsets.US_ASCII));
     }
 
     @Test
@@ -876,7 +876,7 @@ public class StringUtilsTest {
         assertEquals(ArrayUtils.EMPTY_BYTE_ARRAY, StringUtils.getBytes(null, (String) null));
         assertArrayEquals(StringUtils.EMPTY.getBytes(), StringUtils.getBytes(StringUtils.EMPTY, (String) null));
         assertArrayEquals(StringUtils.EMPTY.getBytes(StandardCharsets.US_ASCII.name()),
-            StringUtils.getBytes(StringUtils.EMPTY, StandardCharsets.US_ASCII.name()));
+                StringUtils.getBytes(StringUtils.EMPTY, StandardCharsets.US_ASCII.name()));
     }
 
     @Test
@@ -1325,7 +1325,7 @@ public class StringUtilsTest {
         assertEquals("", StringUtils.join(EMPTY_STRING_LIST, null));
         assertEquals("", StringUtils.join(EMPTY_STRING_LIST, ""));
 
-        assertEquals("", StringUtils.join(MIXED_STRING_LIST, "", 0, MIXED_STRING_LIST.size()- 1));
+        assertEquals("", StringUtils.join(MIXED_STRING_LIST, "", 0, MIXED_STRING_LIST.size() - 1));
     }
 
     @Test
@@ -1960,7 +1960,7 @@ public class StringUtilsTest {
         assertEquals("aba", StringUtils.replaceEachRepeatedly("aba", new String[]{null}, new String[]{"a"}));
         assertEquals("wcte", StringUtils.replaceEachRepeatedly("abcde", new String[]{"ab", "d"}, new String[]{"w", "t"}));
         assertEquals("tcte", StringUtils.replaceEachRepeatedly("abcde", new String[]{"ab", "d"}, new String[]{"d", "t"}));
-        assertEquals("blaan", StringUtils.replaceEachRepeatedly("blllaan", new String[]{"llaan"}, new String[]{"laan"}) );
+        assertEquals("blaan", StringUtils.replaceEachRepeatedly("blllaan", new String[]{"llaan"}, new String[]{"laan"}));
 
         assertThrows(
                 IllegalStateException.class,
@@ -2037,7 +2037,7 @@ public class StringUtilsTest {
         assertEquals("ABC_123", StringUtils.replaceAll("ABCabc123", "[^A-Z0-9]+", "_"));
         assertEquals("ABC123", StringUtils.replaceAll("ABCabc123", "[^A-Z0-9]+", ""));
         assertEquals("Lorem_ipsum_dolor_sit",
-                     StringUtils.replaceAll("Lorem ipsum  dolor   sit", "( +)([a-z]+)", "_$2"));
+                StringUtils.replaceAll("Lorem ipsum  dolor   sit", "( +)([a-z]+)", "_$2"));
 
         assertThrows(
                 PatternSyntaxException.class,
@@ -2118,7 +2118,7 @@ public class StringUtilsTest {
         assertEquals("ABC_123abc", StringUtils.replaceFirst("ABCabc123abc", "[^A-Z0-9]+", "_"));
         assertEquals("ABC123abc", StringUtils.replaceFirst("ABCabc123abc", "[^A-Z0-9]+", ""));
         assertEquals("Lorem_ipsum  dolor   sit",
-                     StringUtils.replaceFirst("Lorem ipsum  dolor   sit", "( +)([a-z]+)", "_$2"));
+                StringUtils.replaceFirst("Lorem ipsum  dolor   sit", "( +)([a-z]+)", "_$2"));
 
         assertThrows(
                 PatternSyntaxException.class,
@@ -2165,7 +2165,7 @@ public class StringUtilsTest {
         assertEquals("", StringUtils.replaceIgnoreCase("", "any", null, 2));
         assertEquals("", StringUtils.replaceIgnoreCase("", "any", "any", 2));
 
-        final String str = new String(new char[] { 'o', 'o', 'f', 'o', 'o' });
+        final String str = new String(new char[]{'o', 'o', 'f', 'o', 'o'});
         assertSame(str, StringUtils.replaceIgnoreCase(str, "x", "", -1));
 
         assertEquals("f", StringUtils.replaceIgnoreCase("oofoo", "o", "", -1));
@@ -2251,7 +2251,7 @@ public class StringUtilsTest {
         assertEquals("ABC_123", StringUtils.replacePattern("ABCabc123", "[^A-Z0-9]+", "_"));
         assertEquals("ABC123", StringUtils.replacePattern("ABCabc123", "[^A-Z0-9]+", ""));
         assertEquals("Lorem_ipsum_dolor_sit",
-                     StringUtils.replacePattern("Lorem ipsum  dolor   sit", "( +)([a-z]+)", "_$2"));
+                StringUtils.replacePattern("Lorem ipsum  dolor   sit", "( +)([a-z]+)", "_$2"));
     }
 
     @Test
@@ -2927,12 +2927,12 @@ public class StringUtilsTest {
         final Class<StringUtils> c = StringUtils.class;
         // Methods that are expressly excluded from testStringUtilsCharSequenceContract()
         final String[] excludeMethods = {
-            "public static int org.apache.commons.lang3.StringUtils.compare(java.lang.String,java.lang.String)",
-            "public static int org.apache.commons.lang3.StringUtils.compare(java.lang.String,java.lang.String,boolean)",
-            "public static int org.apache.commons.lang3.StringUtils.compareIgnoreCase(java.lang.String,java.lang.String)",
-            "public static int org.apache.commons.lang3.StringUtils.compareIgnoreCase(java.lang.String,java.lang.String,boolean)",
-            "public static byte[] org.apache.commons.lang3.StringUtils.getBytes(java.lang.String,java.nio.charset.Charset)",
-            "public static byte[] org.apache.commons.lang3.StringUtils.getBytes(java.lang.String,java.lang.String) throws java.io.UnsupportedEncodingException"
+                "public static int org.apache.commons.lang3.StringUtils.compare(java.lang.String,java.lang.String)",
+                "public static int org.apache.commons.lang3.StringUtils.compare(java.lang.String,java.lang.String,boolean)",
+                "public static int org.apache.commons.lang3.StringUtils.compareIgnoreCase(java.lang.String,java.lang.String)",
+                "public static int org.apache.commons.lang3.StringUtils.compareIgnoreCase(java.lang.String,java.lang.String,boolean)",
+                "public static byte[] org.apache.commons.lang3.StringUtils.getBytes(java.lang.String,java.nio.charset.Charset)",
+                "public static byte[] org.apache.commons.lang3.StringUtils.getBytes(java.lang.String,java.lang.String) throws java.io.UnsupportedEncodingException"
         };
         final Method[] methods = c.getMethods();
 
@@ -3402,7 +3402,7 @@ public class StringUtilsTest {
      * Coverage test for int compare(final String str1, final String str2, final boolean nullIsLess) at line [867]
      */
     @Test
-    public void testCompare(){
+    public void testCompare() {
         assertEquals(0, StringUtils.compare("abc", "abc", false));
         assertEquals(-1, StringUtils.compare(null, "xyz", true));
         assertEquals(1, StringUtils.compare(null, "xyz", false));
@@ -3416,7 +3416,7 @@ public class StringUtilsTest {
      * Coverage test for boolean contains(final CharSequence seq, final CharSequence searchSeq) at line [996]
      */
     @Test
-    public void testContains(){
+    public void testContains() {
         assertFalse(StringUtils.contains("abc", null));
         assertFalse(StringUtils.contains(null, "abc"));
         assertTrue(StringUtils.contains("abc", "a"));
@@ -3428,19 +3428,19 @@ public class StringUtilsTest {
      */
 
     @Test
-    public void testContainsAny(){
+    public void testContainsAny() {
         assertFalse(StringUtils.containsAny("xyz", new char[]{}));
         assertFalse(StringUtils.containsAny("", new char[]{}));
-        assertFalse(StringUtils.containsAny("xyz", new char[]{'a','b','c'}));
-        assertTrue(StringUtils.containsAny("zzabyycdxx", new char[]{'a','z','c'}));
-        assertTrue(StringUtils.containsAny("zzabyycdxx", new char[]{'b','y'}));
+        assertFalse(StringUtils.containsAny("xyz", new char[]{'a', 'b', 'c'}));
+        assertTrue(StringUtils.containsAny("zzabyycdxx", new char[]{'a', 'z', 'c'}));
+        assertTrue(StringUtils.containsAny("zzabyycdxx", new char[]{'b', 'y'}));
     }
 
     /**
      * Coverage test for boolean containsWhitespace(final CharSequence seq) at line [1411]
      */
     @Test
-    public void testContainsWhitespace(){
+    public void testContainsWhitespace() {
         assertFalse(StringUtils.containsWhitespace(""));
         assertFalse(StringUtils.containsWhitespace("abc"));
         assertTrue(StringUtils.containsWhitespace("ab c"));
@@ -3450,7 +3450,7 @@ public class StringUtilsTest {
      * Coverage test for boolean equals(final CharSequence cs1, final CharSequence cs2) at line [1801]
      */
     @Test
-    public void testEquals(){
+    public void testEquals() {
         assertTrue(StringUtils.equals(null, null));
         assertFalse(StringUtils.equals(null, "abc"));
         assertFalse(StringUtils.equals("abc", null));
@@ -3464,48 +3464,49 @@ public class StringUtilsTest {
      * Coverage test for int countMatches(final CharSequence str, final char ch) and int countMatches(final CharSequence str, final CharSequence sub) at line 1453 and 1489
      */
     @Test
-    public void testCountMatch(){
-        assertEquals(0,StringUtils.countMatches("",'a'));
-        assertEquals(2,StringUtils.countMatches("aa",'a'));
-        assertEquals(0,StringUtils.countMatches("aa",'b'));
+    public void testCountMatch() {
+        assertEquals(0, StringUtils.countMatches("", 'a'));
+        assertEquals(2, StringUtils.countMatches("aa", 'a'));
+        assertEquals(0, StringUtils.countMatches("aa", 'b'));
 
-        assertEquals(0,StringUtils.countMatches("","ab"));
-        assertEquals(1,StringUtils.countMatches("abc","ab"));
-        assertEquals(0,StringUtils.countMatches("abc","bd"));
-
+        assertEquals(0, StringUtils.countMatches("", "ab"));
+        assertEquals(1, StringUtils.countMatches("abc", "ab"));
+        assertEquals(0, StringUtils.countMatches("abc", "bd"));
 
 
     }
+
     /**
      * Coverage test for boolean endsWithAny(final CharSequence sequence, final CharSequence... searchStrings) at line 1739
      */
     @Test
-    public void testEndsWithAny(){
-        assertEquals(false, StringUtils.endsWithAny("","aa","zzz"));
-        assertEquals(false, StringUtils.endsWithAny("aaa",null));
+    public void testEndsWithAny() {
+        assertEquals(false, StringUtils.endsWithAny("", "aa", "zzz"));
+        assertEquals(false, StringUtils.endsWithAny("aaa", null));
 
-        assertEquals(true, StringUtils.endsWithAny("aaa","a","aa"));
-        assertEquals(false, StringUtils.endsWithAny("aaa","b","bb"));
+        assertEquals(true, StringUtils.endsWithAny("aaa", "a", "aa"));
+        assertEquals(false, StringUtils.endsWithAny("aaa", "b", "bb"));
 
     }
+
     /**
      * Coverage test for int indexOfAny(final CharSequence cs, final char... searchChars) and int indexOfAny(final CharSequence str, final CharSequence... searchStrs)
      * at line 2759 and 2811
      */
     @Test
-    public void testIndexOfAny(){
-        assertEquals(-1,StringUtils.indexOfAny("",'a','b'));
-        assertEquals(0,StringUtils.indexOfAny("abc",'a'));
-        assertEquals(-1,StringUtils.indexOfAny("abc",'d'));
-        assertEquals(3,StringUtils.indexOfAny(("abc"+'\uD800'+'d'),'\uD800','d'));
-        assertEquals(-1,StringUtils.indexOfAny(("abc"+'\uD800'+'d'),'\uD800','e'));
+    public void testIndexOfAny() {
+        assertEquals(-1, StringUtils.indexOfAny("", 'a', 'b'));
+        assertEquals(0, StringUtils.indexOfAny("abc", 'a'));
+        assertEquals(-1, StringUtils.indexOfAny("abc", 'd'));
+        assertEquals(3, StringUtils.indexOfAny(("abc" + '\uD800' + 'd'), '\uD800', 'd'));
+        assertEquals(-1, StringUtils.indexOfAny(("abc" + '\uD800' + 'd'), '\uD800', 'e'));
 
-        assertEquals(-1,StringUtils.indexOfAny("","aa","bb"));
-        assertEquals(-1,StringUtils.indexOfAny("ccc","aa","bb"));
-        assertEquals(-1,StringUtils.indexOfAny("ccc",null,"aa","bb"));
-        assertEquals(-1,StringUtils.indexOfAny(null,null,"aa","bb"));
-        assertEquals(0,StringUtils.indexOfAny("ccc","cc","bb"));
-        assertEquals(0,StringUtils.indexOfAny("cccbb","cc","bb"));
+        assertEquals(-1, StringUtils.indexOfAny("", "aa", "bb"));
+        assertEquals(-1, StringUtils.indexOfAny("ccc", "aa", "bb"));
+        assertEquals(-1, StringUtils.indexOfAny("ccc", null, "aa", "bb"));
+        assertEquals(-1, StringUtils.indexOfAny(null, null, "aa", "bb"));
+        assertEquals(0, StringUtils.indexOfAny("ccc", "cc", "bb"));
+        assertEquals(0, StringUtils.indexOfAny("cccbb", "cc", "bb"));
 
 //        assertEquals(-1,StringUtils.indexOfAny(null,""));
 
