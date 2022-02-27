@@ -442,6 +442,30 @@ public class StringUtils {
         return str + suffix.toString();
     }
 
+
+    /**
+     * make appendIfMissing public for testing
+     * @param str
+     * @param suffix
+     * @param ignoreCase
+     * @param suffixes
+     * @return
+     */
+    public static String appendIfMissingE2(final String str, final CharSequence suffix, final boolean ignoreCase, final CharSequence... suffixes) {
+        if (str == null || isEmpty(suffix) || endsWith(str, suffix, ignoreCase)) {
+            return str;
+        }
+        if (ArrayUtils.isNotEmpty(suffixes)) {
+            for (final CharSequence s : suffixes) {
+                if (endsWith(str, s, ignoreCase)) {
+                    return str;
+                }
+            }
+        }
+        return str + suffix.toString();
+    }
+
+
     /**
      * Appends the suffix to the end of the string if the string does not
      * already end with any of the suffixes.
