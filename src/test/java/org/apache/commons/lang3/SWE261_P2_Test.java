@@ -6,12 +6,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SWE261_P2_Test {
 
+    // ArrayUtils.toString() method can convert an array to a String.
     @Test
     public void testArrayToString() {
         String[] a = {"aaa", "bbb"};
         assertEquals("{aaa,bbb}", ArrayUtils.toString(a));
     }
 
+    // ArrayUtils.toArray() method can convert some Strings to an array.
     @Test
     public void testToArray() {
         String[] a = {"aaa", "bbb"};
@@ -19,6 +21,7 @@ public class SWE261_P2_Test {
         assertEquals(ArrayUtils.toString(a), ArrayUtils.toString(b));
     }
 
+    // ArrayUtils.add() method can add an object to the array at the last position.
     @Test
     public void testArrayUtilAdd() {
         String[] a = ArrayUtils.toArray("aaa", "bbb");
@@ -26,6 +29,7 @@ public class SWE261_P2_Test {
         assertEquals("{aaa,bbb,ccc}", ArrayUtils.toString(c));
     }
 
+    // ArrayUtils.remove() method can remove an object from an array.
     @Test
     public void testArrayUtilRemove() {
         String[] a = ArrayUtils.toArray("aaa", "bbb");
@@ -34,6 +38,7 @@ public class SWE261_P2_Test {
         assertEquals("{aaa,bbb}", ArrayUtils.toString(d));
     }
 
+    // ArrayUtils.reverse() method can reverse an array.
     @Test
     public void testArrayUtilReverse() {
         String[] a = ArrayUtils.toArray("aaa", "bbb", "ccc");
@@ -43,6 +48,7 @@ public class SWE261_P2_Test {
         assertEquals("{aaa,bbb,ccc}", ArrayUtils.toString(a));
     }
 
+    // ArrayUtils.swap() method can swap two object’s positions in an array.
     @Test
     public void testArrayUtilSwap() {
         String[] a = ArrayUtils.toArray("aaa", "bbb", "ccc");
